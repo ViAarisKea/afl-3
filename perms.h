@@ -20,4 +20,9 @@ bool chmod(const char *input, struct perms_t *);
 #define OTHER_WRITE 0002
 #define OTHER_EXECUTE 0001
 
+#define ALL_READ (USER_READ | GROUP_READ | OTHER_READ)
+#define ALL_WRITE (USER_WRITE | GROUP_WRITE | OTHER_WRITE)
+#define ALL_EXECUTE (USER_EXECUTE | GROUP_EXECUTE | OTHER_EXECUTE)
+
+
 #endif //AFL_3_CHMOD_PERMS_H

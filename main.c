@@ -17,16 +17,16 @@ int main(int argc, char *argv[]) {
     }
 
     // // Test 2
-    // {
-    //     struct perms_t file_b = { 0777 };
-    //     printf("Test 2 before: %o\n", file_b.bits);
-    //     struct perms_t expect = { 0666 };
-    //     printf("Test 1 expect: %o\n", expect.bits);
-    //     bool success = chmod("a-x", &file_b);
-    //     printf("Test 2 after:  %o\n", file_b.bits);
-    //     assert(success && file_b.bits == expect.bits);
-    //     printf(" -> Test 2 gik godt!\n");
-    // }
+    {
+        struct perms_t file_b = { 0777 };
+        printf("Test 2 before: %o\n", file_b.bits);
+        struct perms_t expect = { 0666 };
+        printf("Test 1 expect: %o\n", expect.bits);
+        bool success = chmod("a-x", &file_b);
+        printf("Test 2 after:  %o\n", file_b.bits);
+        assert(success && file_b.bits == expect.bits);
+        printf(" -> Test 2 gik godt!\n");
+    }
 
     // Test 3
     {
