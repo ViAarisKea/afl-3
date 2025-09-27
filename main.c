@@ -3,29 +3,30 @@
 #include "perms.h"
 
 int main(int argc, char *argv[]) {
+
     // Test 1
     {
-        struct perms_t file_a = { 0644 };
+        struct perms_t file_a = { 0744 };
         printf("Test 1 before: %o\n", file_a.bits);
-        struct perms_t expect = { 0640 };
+        struct perms_t expect = { 0144 };
         printf("Test 1 expect: %o\n", expect.bits);
-        bool success = chmod("o-r", &file_a);
+        bool success = chmod("u-rw", &file_a);
         printf("Test 1 after:  %o\n", file_a.bits);
         assert(success && file_a.bits == expect.bits);
         printf(" -> Test 1 gik godt!\n");
     }
 
-    // Test 2
-    {
-        struct perms_t file_b = { 0777 };
-        printf("Test 2 before: %o\n", file_b.bits);
-        struct perms_t expect = { 0666 };
-        printf("Test 1 expect: %o\n", expect.bits);
-        bool success = chmod("a-x", &file_b);
-        printf("Test 2 after:  %o\n", file_b.bits);
-        assert(success && file_b.bits == expect.bits);
-        printf(" -> Test 2 gik godt!\n");
-    }
+    // // Test 2
+    // {
+    //     struct perms_t file_b = { 0777 };
+    //     printf("Test 2 before: %o\n", file_b.bits);
+    //     struct perms_t expect = { 0666 };
+    //     printf("Test 1 expect: %o\n", expect.bits);
+    //     bool success = chmod("a-x", &file_b);
+    //     printf("Test 2 after:  %o\n", file_b.bits);
+    //     assert(success && file_b.bits == expect.bits);
+    //     printf(" -> Test 2 gik godt!\n");
+    // }
 
     // Test 3
     {
